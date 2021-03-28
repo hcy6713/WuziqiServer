@@ -1,0 +1,46 @@
+﻿<Window x:Class="WuziqiServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WuziqiServer"
+        mc:Ignorable="d"
+        Title="五子棋_Server" Height="600" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Column="0" Margin="10">
+            <Canvas Width="535" Height="535" x:Name="chessBoard" Background="#FFD8B492">
+                <Image Source="image/background.jpg"/>
+            </Canvas>
+        </Viewbox>
+        
+        <Canvas Grid.Column="1" Margin="10">
+            <Label Content="Port:" Name="PortLabel" FontSize="20"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Text="8680" Name="PortTextBox" Canvas.Left="60" Height="35" Width="55"
+                     FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="startButton" Content="Start" Click="Start_Click" Canvas.Left="130" Height="35" 
+                    Width="55" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button Name="restartButton" Content="Restart" Click="Restart_Click" Canvas.Right="0" Height="35" 
+                    Width="75" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            
+            <Label Content="当前对局" FontSize="20" Canvas.Top="40" Canvas.Left="100" FontFamily="Microsoft Yahei"/>
+            <TextBlock Text="黑:" FontSize="20" FontFamily="Microsoft Yahei" Canvas.Top="80" x:Name="blackText"/>
+            <TextBox FontSize="20" Canvas.Top="80" Canvas.Left="40"  x:Name="blackIp" Width="220"/>
+            <TextBlock Text="白:" FontSize="20" FontFamily="Microsoft Yahei" Canvas.Top="120" x:Name="whiteText"/>
+            <TextBox FontSize="20" Canvas.Top="120" Canvas.Left="40"  x:Name="whiteIp" Width="220"/>
+            
+            <Label Content="对局信息" FontSize="20" Canvas.Top="160" Canvas.Left="100"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Name="DataText" Canvas.Top="200" FontSize="20" TextWrapping="Wrap" Height="345" Width="275"
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AcceptsReturn="True" AcceptsTab="True"
+                 HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+        </Canvas>
+    </Grid>
+</Window>

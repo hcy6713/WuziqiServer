@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1433
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuziqiServer", "WuziqiServer\WuziqiServer.csproj", "{290DCCC8-4E1F-4974-8F6D-61AFE2954EFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{290DCCC8-4E1F-4974-8F6D-61AFE2954EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290DCCC8-4E1F-4974-8F6D-61AFE2954EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290DCCC8-4E1F-4974-8F6D-61AFE2954EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290DCCC8-4E1F-4974-8F6D-61AFE2954EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91A26C9C-DE6F-4E7F-A3F4-B475B8257BD3}
+	EndGlobalSection
+EndGlobal
