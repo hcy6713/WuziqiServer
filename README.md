@@ -21,7 +21,7 @@ port为五子棋服务器监听的端口，通过port框进行设置
 ## 三、游戏规则
 
 - 当客户端接收到”BEGIN"指令时，需要通过发送"position,x,y"指令告诉服务器落子位置
-  - 由于棋盘大小为15 * 15，所以<img src="http://latex.codecogs.com/gif.latex?\frac{\partial J}{\partial \theta_k^{(j)}}=\sum_{i:r(i,j)=1}{\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)x_k^{(i)}}+\lambda \theta_k^{(j)}" />
+  - 由于棋盘大小为15 * 15，所以![](https://user-images.githubusercontent.com/25134363/112800563-63e53700-90a2-11eb-8e21-9cbcde6d1389.png)
 - 落子后服务器会检查落子一方是否胜利，若胜利，则给胜利一方发送"WIN"指令，失败一方发送"FAIL"指令，并结束游戏
 - 若未胜利，服务器会将落子位置信息转发给对手方，对手方需要发送位置指令告诉服务器落子位置
 
