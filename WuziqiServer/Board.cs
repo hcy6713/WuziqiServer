@@ -123,9 +123,10 @@ namespace WuziqiServer
                         int nexty = j + 1;
                         while (MainWindow.ChessStatus[nextx, nexty] == temp)
                         {
-                            nextx++;
+                            nextx--;
                             nexty++;
                             if (nextx - i == -5) return true;
+                            if (nextx < 0) return false;
                         }
                     }
                 }

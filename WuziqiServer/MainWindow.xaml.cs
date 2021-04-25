@@ -209,33 +209,33 @@ namespace WuziqiServer
                     }
 
                     // 30s内未响应
-                    if ((DateTime.Now - LastTime).TotalSeconds > 30)
-                    {
-                        gameStatus = GameStatus.END;
-                        if (Turn == 0xBB)
-                        {
-                            if (ClientBlack.Connected)
-                            {
-                                ClientBlack.Send(Protocol.BuildDataPackage(0x99));
-                            }
-                            if (ClientWhite.Connected)
-                            {
-                                ClientWhite.Send(Protocol.BuildDataPackage(0x88));
-                            }
-                        }else if(Turn == 0xCC)
-                        {
-                            if (ClientBlack.Connected)
-                            {
-                                ClientBlack.Send(Protocol.BuildDataPackage(0x88));
-                            }
-                            if (ClientWhite.Connected)
-                            {
-                                ClientWhite.Send(Protocol.BuildDataPackage(0x99));
-                            }
-                        }
+                    //if ((DateTime.Now - LastTime).TotalSeconds > 30)
+                    //{
+                    //    gameStatus = GameStatus.END;
+                    //    if (Turn == 0xBB)
+                    //    {
+                    //        if (ClientBlack.Connected)
+                    //        {
+                    //            ClientBlack.Send(Protocol.BuildDataPackage(0x99));
+                    //        }
+                    //        if (ClientWhite.Connected)
+                    //        {
+                    //            ClientWhite.Send(Protocol.BuildDataPackage(0x88));
+                    //        }
+                    //    }else if(Turn == 0xCC)
+                    //    {
+                    //        if (ClientBlack.Connected)
+                    //        {
+                    //            ClientBlack.Send(Protocol.BuildDataPackage(0x88));
+                    //        }
+                    //        if (ClientWhite.Connected)
+                    //        {
+                    //            ClientWhite.Send(Protocol.BuildDataPackage(0x99));
+                    //        }
+                    //    }
 
-                        BoxShow("游戏结束");
-                    }
+                    //    BoxShow("游戏结束");
+                    //}
                     // 判断是否胜利
                     if (result == RES.WIN)
                     {
