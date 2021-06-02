@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WuziqiServer
 {
@@ -89,6 +85,10 @@ namespace WuziqiServer
                     MainWindow.DrawChess(int.Parse(mess[0]), int.Parse(mess[1]));
                     Full_Mess += " " + mess[0] + " " + mess[1];
                     // 检查是否胜利
+                    for (int l = 0; l < 1000000; l++)
+                    {
+                        int a = 0;
+                    }
                     if (Board.IsWin(chessColor))
                     {
                         MainWindow.result = MainWindow.RES.WIN;

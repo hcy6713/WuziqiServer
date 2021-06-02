@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -62,7 +61,6 @@ namespace WuziqiServer
         public MainWindow()
         {
             InitializeComponent();
-            //
             startButton.IsEnabled = true;
             Board = this.chessBoard;
             for (int i = 0; i <= 14; i++)
@@ -178,7 +176,8 @@ namespace WuziqiServer
                     );
                     // 生成0~2(不含)之间的随机整数，为1时，白棋先；为0时，黑棋先
                     Random rd = new Random();
-                    int rand = rd.Next(0, 2);
+                    //int rand = rd.Next(0, 2);
+                    int rand = 0;
                     if (rand == 1)
                     {
                         ClientWhite.Send(Protocol.BuildDataPackage(0x33));
@@ -210,33 +209,34 @@ namespace WuziqiServer
                     }
 
                     // 30s内未响应
-                    //if ((DateTime.Now - LastTime).TotalSeconds > 30)
-                    //{
-                    //    gameStatus = GameStatus.END;
-                    //    if (Turn == 0xBB)
-                    //    {
-                    //        if (ClientBlack.Connected)
-                    //        {
-                    //            ClientBlack.Send(Protocol.BuildDataPackage(0x99));
-                    //        }
-                    //        if (ClientWhite.Connected)
-                    //        {
-                    //            ClientWhite.Send(Protocol.BuildDataPackage(0x88));
-                    //        }
-                    //    }else if(Turn == 0xCC)
-                    //    {
-                    //        if (ClientBlack.Connected)
-                    //        {
-                    //            ClientBlack.Send(Protocol.BuildDataPackage(0x88));
-                    //        }
-                    //        if (ClientWhite.Connected)
-                    //        {
-                    //            ClientWhite.Send(Protocol.BuildDataPackage(0x99));
-                    //        }
-                    //    }
+                    if ((DateTime.Now - LastTime).TotalSeconds > 30)
+                    {
+                        gameStatus = GameStatus.END;
+                        if (Turn == 0xBB)
+                        {
+                            if (ClientBlack.Connected)
+                            {
+                                ClientBlack.Send(Protocol.BuildDataPackage(0x99));
+                            }
+                            if (ClientWhite.Connected)
+                            {
+                                ClientWhite.Send(Protocol.BuildDataPackage(0x88));
+                            }
+                        }
+                        else if (Turn == 0xCC)
+                        {
+                            if (ClientBlack.Connected)
+                            {
+                                ClientBlack.Send(Protocol.BuildDataPackage(0x88));
+                            }
+                            if (ClientWhite.Connected)
+                            {
+                                ClientWhite.Send(Protocol.BuildDataPackage(0x99));
+                            }
+                        }
 
-                    //    BoxShow("游戏结束");
-                    //}
+                        BoxShow("游戏结束");
+                    }
                     // 判断是否胜利
                     if (result == RES.WIN)
                     {
